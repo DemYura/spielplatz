@@ -1,0 +1,6 @@
+/.idea/
+/.ijwb/
+*.iml
+/out
+bazel-*
+pom.xml
