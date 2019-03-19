@@ -1,4 +1,4 @@
-"""External dependencies & java_junit5_test rule"""
+"""External dependencies & java_junit5_test(s) rule"""
 
 JUNIT_JUPITER_GROUP_ID = "org.junit.jupiter"
 JUNIT_JUPITER_ARTIFACT_ID_LIST = [
@@ -19,6 +19,11 @@ JUNIT_PLATFORM_ARTIFACT_ID_LIST = [
 JUNIT_EXTRA_DEPENDENCIES = [
     ("org.apiguardian", "apiguardian-api", "1.0.0"),
     ("org.opentest4j", "opentest4j", "1.1.1"),
+    ("org.mockito", "mockito-junit-jupiter", "2.25.1"),
+    ("org.mockito", "mockito-core", "2.25.1"),
+    ("net.bytebuddy", "byte-buddy", "1.9.7"),
+    ("net.bytebuddy", "byte-buddy-agent", "1.9.7"),
+    ("org.objenesis", "objenesis", "2.6")
 ]
 
 def junit_jupiter_java_repositories(
@@ -91,6 +96,42 @@ def java_junit5_test(name, srcs, test_class = None, deps = [], runtime_deps = []
         ],
         **kwargs
     )
+
+def java_junit5_tests(name, srcs, deps = [], runtime_deps = [], **kwargs):
+    FILTER_KWARGS = [
+        "main_class",
+        "use_testrunner",
+        "args",
+    ]
+
+    for arg in FILTER_KWARGS:
+        if arg in kwargs.keys():
+            kwargs.pop(arg)
+
+    for src in srcs:
+        src_name = src[src.index("com/ydemenkov"):-5]
+        junit_console_args = ["--select-class", src_name.replace("/", ".")]
+        native.java_test(
+            name = name + "_" + src_name,
+            srcs = srcs,
+            use_testrunner = False,
+            main_class = "org.junit.platform.console.ConsoleLauncher",
+            args = junit_console_args,
+            deps = deps + [
+                _format_maven_jar_dep_name(JUNIT_JUPITER_GROUP_ID, artifact_id)
+                for artifact_id in JUNIT_JUPITER_ARTIFACT_ID_LIST
+            ] + [
+                _format_maven_jar_dep_name(JUNIT_PLATFORM_GROUP_ID, "junit-platform-suite-api"),
+            ] + [
+                _format_maven_jar_dep_name(t[0], t[1])
+                for t in JUNIT_EXTRA_DEPENDENCIES
+            ],
+            runtime_deps = runtime_deps + [
+                _format_maven_jar_dep_name(JUNIT_PLATFORM_GROUP_ID, artifact_id)
+                for artifact_id in JUNIT_PLATFORM_ARTIFACT_ID_LIST
+            ],
+            **kwargs
+        )
 
 def _format_maven_jar_name(group_id, artifact_id):
     return ("%s_%s" % (group_id, artifact_id)).replace(".", "_").replace("-", "_")

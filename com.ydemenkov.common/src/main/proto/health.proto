@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.ydemenkov.common.health;
+
+option java_package = "com.ydemenkov.common.health";
+option java_multiple_files = true;
+
+message HealthCheckReport {
+    enum CheckStatus {
+        UNKNOWN = 0;
+        SUCCESS = 1;
+        WARNINGS = 2;
+        FAILED = 3;
+    }
+
+    string checkName = 1;
+    CheckStatus status = 2;
+    repeated string details = 3;
+}
+
+message HealthCheckResponse {
+    string message = 1;
+    repeated HealthCheckReport reports = 2;
+}
+

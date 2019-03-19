@@ -1,10 +1,12 @@
 package com.ydemenkov.posts.app;
 
-import static spark.Spark.get;
+import com.ydemenkov.common.spark.SparkApp;
 
+/** Posts application entry point. */
 public class PostsApp {
 
-  public static void main(String[] args) throws Exception {
-    get("/hello", (req, res) -> "Hello World");
+  public static void main(String[] args) {
+    // TODO(ydemenkov): Parse args to get flags values instead of system properties.
+    SparkApp.run(new PostsAppModule());
   }
 }

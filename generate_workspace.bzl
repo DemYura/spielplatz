@@ -1,6 +1,6 @@
 # The following dependencies were calculated from:
 #
-# generate_workspace --maven_project=/Users/demyura/sources/spielplatz/spielplatz/test --repositories=http://central.maven.org/maven2
+# generate_workspace --maven_project=/Users/demyura/sources/spielplatz/spielplatz --repositories=http://central.maven.org/maven2
 
 
 def generated_maven_jars():
@@ -22,6 +22,15 @@ def generated_maven_jars():
   )
 
 
+  # com.google.inject:guice:jar:4.2.2
+  native.maven_jar(
+      name = "aopalliance_aopalliance",
+      artifact = "aopalliance:aopalliance:1.0",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "0235ba8b489512805ac13a8f9ea77a1ca5ebe3e8",
+  )
+
+
   # org.eclipse.jetty.websocket:websocket-client:jar:9.4.12.v20180830 got requested version
   # org.eclipse.jetty.websocket:websocket-server:jar:9.4.12.v20180830
   native.maven_jar(
@@ -29,6 +38,15 @@ def generated_maven_jars():
       artifact = "org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830",
       repository = "http://central.maven.org/maven2/",
       sha1 = "33997cdafbabb3ffd6947a5c33057f967e10535b",
+  )
+
+
+  # com.google.protobuf:protobuf-java-util:bundle:3.7.0-rc1
+  native.maven_jar(
+      name = "com_google_protobuf_protobuf_java",
+      artifact = "com.google.protobuf:protobuf-java:3.7.0-rc1",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "2ed27857f95fe5e9a9ba82d748f921cb168d82fe",
   )
 
 
@@ -84,6 +102,7 @@ def generated_maven_jars():
   )
 
 
+  # com.google.protobuf:protobuf-java-util:bundle:3.7.0-rc1 wanted version 2.3.2
   # com.google.truth:truth:jar:0.42 wanted version 2.3.1
   # com.google.guava:guava:bundle:25.1-android
   native.maven_jar(
@@ -91,6 +110,26 @@ def generated_maven_jars():
       artifact = "com.google.errorprone:error_prone_annotations:2.1.3",
       repository = "http://central.maven.org/maven2/",
       sha1 = "39b109f2cd352b2d71b52a3b5a1a9850e1dc304b",
+  )
+
+
+  # pom.xml got requested version
+  # com.ydemenkov:test:jar:1.0
+  native.maven_jar(
+      name = "com_google_protobuf_protobuf_java_util",
+      artifact = "com.google.protobuf:protobuf-java-util:3.7.0-rc1",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "c0bc0c603b54ac4e47d2ed68a83f6f9707229af4",
+  )
+
+
+  # pom.xml got requested version
+  # com.ydemenkov:test:jar:1.0
+  native.maven_jar(
+      name = "com_google_inject_guice",
+      artifact = "com.google.inject:guice:4.2.2",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "6dacbe18e5eaa7f6c9c36db33b42e7985e94ce77",
   )
 
 
@@ -151,6 +190,7 @@ def generated_maven_jars():
   )
 
 
+  # com.zaxxer:HikariCP:bundle:3.3.1 got requested version
   # com.sparkjava:spark-core:bundle:2.8.0
   # org.slf4j:slf4j-simple:jar:1.7.25 got requested version
   native.maven_jar(
@@ -158,6 +198,16 @@ def generated_maven_jars():
       artifact = "org.slf4j:slf4j-api:1.7.25",
       repository = "http://central.maven.org/maven2/",
       sha1 = "da76ca59f6a57ee3102f8f9bd9cee742973efa8a",
+  )
+
+
+  # pom.xml got requested version
+  # com.ydemenkov:test:jar:1.0
+  native.maven_jar(
+      name = "org_apache_derby_derby",
+      artifact = "org.apache.derby:derby:10.14.2.0",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "7efad40ef52fbb1f08142f07a83b42d29e47d8ce",
   )
 
 
@@ -184,12 +234,13 @@ def generated_maven_jars():
 
 
   # pom.xml got requested version
+  # com.google.protobuf:protobuf-java-util:bundle:3.7.0-rc1 wanted version 2.7
   # com.ydemenkov:test:jar:1.0
   native.maven_jar(
       name = "com_google_code_gson_gson",
-      artifact = "com.google.code.gson:gson:2.3.1",
+      artifact = "com.google.code.gson:gson:2.8.5",
       repository = "http://central.maven.org/maven2/",
-      sha1 = "ecb6e1f8e4b0e84c4b886c2f14a1500caf309757",
+      sha1 = "f645ed69d595b24d4cf8b3fbb64cc505bede8829",
   )
 
 
@@ -208,6 +259,15 @@ def generated_maven_jars():
       artifact = "com.google.auto.value:auto-value-annotations:1.6.2",
       repository = "http://central.maven.org/maven2/",
       sha1 = "ed193d86e0af90cc2342aedbe73c5d86b03fa09b",
+  )
+
+
+  # com.google.inject:guice:jar:4.2.2
+  native.maven_jar(
+      name = "javax_inject_javax_inject",
+      artifact = "javax.inject:javax.inject:1",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "6975da39a7040257bd51d21a231b76c915872d38",
   )
 
 
@@ -270,12 +330,24 @@ def generated_maven_jars():
   )
 
 
-  # com.google.truth:truth:jar:0.42
+  # com.google.inject:guice:jar:4.2.2
+  # com.google.protobuf:protobuf-java-util:bundle:3.7.0-rc1 wanted version 20.0
+  # com.google.truth:truth:jar:0.42 got requested version
   native.maven_jar(
       name = "com_google_guava_guava",
       artifact = "com.google.guava:guava:25.1-android",
       repository = "http://central.maven.org/maven2/",
       sha1 = "bdaab946ca5ad20253502d873ba0c3313d141036",
+  )
+
+
+  # pom.xml got requested version
+  # com.ydemenkov:test:jar:1.0
+  native.maven_jar(
+      name = "com_zaxxer_HikariCP",
+      artifact = "com.zaxxer:HikariCP:3.3.1",
+      repository = "http://central.maven.org/maven2/",
+      sha1 = "bb447db60818ecfdbb1b99e7bd096ba7a252d91a",
   )
 
 
@@ -329,6 +401,13 @@ def generated_java_libraries():
 
 
   native.java_library(
+      name = "aopalliance_aopalliance",
+      visibility = ["//visibility:public"],
+      exports = ["@aopalliance_aopalliance//jar"],
+  )
+
+
+  native.java_library(
       name = "org_eclipse_jetty_websocket_websocket_common",
       visibility = ["//visibility:public"],
       exports = ["@org_eclipse_jetty_websocket_websocket_common//jar"],
@@ -337,6 +416,13 @@ def generated_java_libraries():
           ":org_eclipse_jetty_jetty_util",
           ":org_eclipse_jetty_websocket_websocket_api",
       ],
+  )
+
+
+  native.java_library(
+      name = "com_google_protobuf_protobuf_java",
+      visibility = ["//visibility:public"],
+      exports = ["@com_google_protobuf_protobuf_java//jar"],
   )
 
 
@@ -401,15 +487,12 @@ def generated_java_libraries():
       exports = ["@com_google_truth_truth//jar"],
       runtime_deps = [
           ":com_google_auto_value_auto_value_annotations",
-          ":com_google_code_findbugs_jsr305",
           ":com_google_errorprone_error_prone_annotations",
           ":com_google_guava_guava",
-          ":com_google_j2objc_j2objc_annotations",
           ":com_googlecode_java_diff_utils_diffutils",
           ":junit_junit",
           ":org_checkerframework_checker_compat_qual",
           ":org_checkerframework_checker_qual",
-          ":org_codehaus_mojo_animal_sniffer_annotations",
           ":org_hamcrest_hamcrest_core",
       ],
   )
@@ -419,6 +502,36 @@ def generated_java_libraries():
       name = "com_google_errorprone_error_prone_annotations",
       visibility = ["//visibility:public"],
       exports = ["@com_google_errorprone_error_prone_annotations//jar"],
+  )
+
+
+  native.java_library(
+      name = "com_google_protobuf_protobuf_java_util",
+      visibility = ["//visibility:public"],
+      exports = ["@com_google_protobuf_protobuf_java_util//jar"],
+      runtime_deps = [
+          ":com_google_code_gson_gson",
+          ":com_google_errorprone_error_prone_annotations",
+          ":com_google_guava_guava",
+          ":com_google_protobuf_protobuf_java",
+      ],
+  )
+
+
+  native.java_library(
+      name = "com_google_inject_guice",
+      visibility = ["//visibility:public"],
+      exports = ["@com_google_inject_guice//jar"],
+      runtime_deps = [
+          ":aopalliance_aopalliance",
+          ":com_google_code_findbugs_jsr305",
+          ":com_google_errorprone_error_prone_annotations",
+          ":com_google_guava_guava",
+          ":com_google_j2objc_j2objc_annotations",
+          ":javax_inject_javax_inject",
+          ":org_checkerframework_checker_compat_qual",
+          ":org_codehaus_mojo_animal_sniffer_annotations",
+      ],
   )
 
 
@@ -479,6 +592,13 @@ def generated_java_libraries():
 
 
   native.java_library(
+      name = "org_apache_derby_derby",
+      visibility = ["//visibility:public"],
+      exports = ["@org_apache_derby_derby//jar"],
+  )
+
+
+  native.java_library(
       name = "org_eclipse_jetty_jetty_util",
       visibility = ["//visibility:public"],
       exports = ["@org_eclipse_jetty_jetty_util//jar"],
@@ -523,6 +643,13 @@ def generated_java_libraries():
       name = "com_google_auto_value_auto_value_annotations",
       visibility = ["//visibility:public"],
       exports = ["@com_google_auto_value_auto_value_annotations//jar"],
+  )
+
+
+  native.java_library(
+      name = "javax_inject_javax_inject",
+      visibility = ["//visibility:public"],
+      exports = ["@javax_inject_javax_inject//jar"],
   )
 
 
@@ -600,6 +727,16 @@ def generated_java_libraries():
           ":com_google_j2objc_j2objc_annotations",
           ":org_checkerframework_checker_compat_qual",
           ":org_codehaus_mojo_animal_sniffer_annotations",
+      ],
+  )
+
+
+  native.java_library(
+      name = "com_zaxxer_HikariCP",
+      visibility = ["//visibility:public"],
+      exports = ["@com_zaxxer_HikariCP//jar"],
+      runtime_deps = [
+          ":org_slf4j_slf4j_api",
       ],
   )
 

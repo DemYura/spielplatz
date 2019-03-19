@@ -1,5 +1,15 @@
 syntax = "proto3";
 
+package com.ydemenkov.posts;
+
+option java_package = "com.ydemenkov.posts";
+option java_multiple_files = true;
+
 message Post {
     int64 id = 1;
+    string markup = 2;
+}
+
+message ListPostsResponse {
+    repeated Post posts = 1;
 }

@@ -4,3 +4,8 @@ proto_library(
     name = "posts_proto",
     srcs = ["src/main/proto/posts.proto"],
 )
+
+java_proto_library(
+    name = "posts_java_proto",
+    deps = [":posts_proto"],
+)
